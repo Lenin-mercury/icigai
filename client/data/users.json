@@ -1,0 +1,124 @@
+[
+    {
+        "email": "lenin@gmail.com",
+        "id": 1,
+        "publicItems": [
+            {
+                "id": "1c4e780f-63ac-4ffd-acbf-1e2071e4b552",
+                "value": "Hello",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T20:03:12.351Z"
+            },
+            {
+                "id": "28f2c5d4-1b0b-4480-a312-bf2696a0095e",
+                "value": "Hellp Private",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T22:07:21.797Z"
+            },
+            {
+                "id": "58f30f4d-245a-4b41-9ed9-40b86b651647",
+                "value": "yes",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T22:38:47.355Z"
+            },
+            {
+                "id": "b8251db5-b524-4f9c-bf09-a7e45160173c",
+                "value": "test",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T22:41:35.929Z"
+            },
+            {
+                "id": "76f0fac0-1495-4fc1-adc9-de2e67136a6b",
+                "value": "",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T22:41:42.693Z"
+            }
+        ],
+        "privateItems": [
+            {
+                "id": "7bbea738-92f9-49ae-9cc2-ddf3dd8b960d",
+                "value": "hi",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T20:28:09.432Z"
+            },
+            {
+                "id": "027c64a3-e7a7-4c56-bcf0-1f42916957b5",
+                "value": "Hellp Public",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T22:07:32.200Z"
+            },
+            {
+                "id": "d0e66c86-261d-427f-abf4-6fab3139ff47",
+                "value": "yes",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T22:39:07.796Z"
+            },
+            {
+                "id": "16aa5320-3b5f-45cd-814c-9a8caaa998a4",
+                "value": "test2",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T22:41:09.300Z"
+            },
+            {
+                "id": "f09aa4c3-53fb-4934-8139-7c3fd6fda3a1",
+                "value": "",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T22:41:13.329Z"
+            }
+        ]
+    },
+    {
+        "email": "user_a@system.com",
+        "id": 2,
+        "dateCreated": "2022-01-29T21:44:01.754Z",
+        "dateUpdated": "2022-02-01T19:16:44.161Z",
+        "publicItems": [
+            {
+                "id": "0c22ddd9-80ba-4170-a668-f65fa21d00e2",
+                "value": "test",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T22:48:01.933Z"
+            },
+            {
+                "id": "78d565ca-a059-414a-9e3e-1bc6f9a7a7ff",
+                "value": "",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T22:48:05.186Z"
+            },
+            {
+                "id": "6f5561e2-ce3e-4de6-86aa-5b906c9ac145",
+                "value": "test55",
+                "isprivate": false,
+                "dateCreated": "2022-02-01T22:49:38.440Z"
+            }
+        ],
+        "privateItems": [
+            {
+                "id": "74865b0a-237a-4141-9490-fc28a9491b98",
+                "value": "test 111",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T22:48:17.863Z"
+            },
+            {
+                "id": "fce3981a-f69c-4578-8865-3637cd287261",
+                "value": "test2",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T22:49:19.203Z"
+            },
+            {
+                "id": "f7cbb960-3633-4db1-9ad9-4e92a3a5576c",
+                "value": "test3",
+                "isprivate": true,
+                "dateCreated": "2022-02-01T22:49:28.678Z"
+            }
+        ]
+    },
+    {
+        "email": "user_b@system.com",
+        "id": 3,
+        "dateCreated": "2022-01-29T21:44:01.754Z",
+        "dateUpdated": "2022-02-01T19:16:44.161Z",
+        "publicItems": [],
+        "privateItems": []
+    }
+]
