@@ -1,7 +1,8 @@
 export const fetchWrapper = {
     get,
     post,
-    put
+    put,
+    delete:_delete
 };
 
 function get(url) {
@@ -27,6 +28,13 @@ function put(url, body) {
         body: JSON.stringify(body)
     };
 
+    return fetch(url, requestOptions).then(handleResponse);
+}
+// prefixed with underscored because delete is a reserved word in javascript
+function _delete(url) {
+    const requestOptions = {
+        method: 'DELETE'
+    };
     return fetch(url, requestOptions).then(handleResponse);
 }
 

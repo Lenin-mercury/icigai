@@ -26,6 +26,7 @@ function Home() {
     })
   })
 
+  console.log(publicArray, "public array");
 
   const [currentUser, setCurrentUser] = useState(
     itemsFromDB.find((x) => x.email === user.email)
@@ -35,7 +36,7 @@ function Home() {
     [uuid()]: {
       name: "Public",
       //public items should go here all files in itemsfromDB
-      items: currentUser === null ? [] : publicArray,
+      items: publicArray,
     },
     [uuid()]: {
       name: "Private",
@@ -54,9 +55,6 @@ function Home() {
       return foundUser
     })
   }, [pubtoggle])
-
-  console.log(pubtoggle)
-
   const [formData, setFormdata] = useState({
     publicValue: "",
     privateValue: "",
@@ -98,13 +96,50 @@ function Home() {
     if (!result.destination) return
     const { source, destination } = result
 
+    // console.log(source.index, destination.index, "-----------", columns, result);
+
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = columns[source.droppableId]
       const destColumn = columns[destination.droppableId]
+
       const sourceItems = [...sourceColumn.items]
       const destItems = [...destColumn.items]
       const [removed] = sourceItems.splice(source.index, 1)
       destItems.splice(destination.index, 0, removed)
+
+      //public to private
+      if(sourceColumn.name === "Public"){
+        const sourceValue = sourceColumn.items[source.index]
+        console.log(sourceValue,"*************************");
+        // this body will store in private
+        const body={
+          itemsid:sourceValue.id,
+          value:sourceValue.value,
+          email:currentUser.email,
+          isprivate:true
+        }
+        console.log(body, "555555555555555555");
+
+        userService.updateItems(currentUser.id,body)
+        // userService.delete(currentUserId, {})
+
+        //private to public
+      } else if(sourceColumn.name === "Private") {
+        const sourceValue = sourceColumn.items[source.index]
+        console.log(sourceValue);
+        // this body will store in public
+        const body={
+          itemsid:sourceValue.id,
+          value:sourceValue.value,
+          email:currentUser.email,
+          isprivate:false
+        }
+        console.log(body, "77777777777777777777");
+        userService.updateItems(currentUser.id,body)
+
+      }
+
+
       setColumns({
         ...columns,
         [source.droppableId]: {
@@ -206,6 +241,7 @@ function Home() {
                             }}
                           >
                             {column.items.map((item, index) => {
+                              // console.log(item);
                               return (
                                 <Draggable
                                   key={item.id}
