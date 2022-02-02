@@ -19,17 +19,13 @@ function Home() {
   }
 
 //   display all public arrays here
+  const publicArray = []
+  itemsFromDB.map((items)=>{
+    items.publicItems.map((pitems)=>{
+      publicArray.push(pitems);
+    })
+  })
 
-//   const publicArray = []
-//   itemsFromDB.map((item) => {
-//     console.log(item)
-//     item.map((list) => {
-//       console.log(list)
-//     })
-//     return item
-//   })
-
-//   console.log(publicArray)
 
   const [currentUser, setCurrentUser] = useState(
     itemsFromDB.find((x) => x.email === user.email)
@@ -39,7 +35,7 @@ function Home() {
     [uuid()]: {
       name: "Public",
       //public items should go here all files in itemsfromDB
-      items: currentUser === null ? [] : currentUser.publicItems,
+      items: currentUser === null ? [] : publicArray,
     },
     [uuid()]: {
       name: "Private",
