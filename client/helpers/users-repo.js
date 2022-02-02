@@ -6,7 +6,6 @@ let users = require("data/users.json")
 export const usersRepo = {
   getAll,
   updateItems,
-  delete:_delete
 }
 
 function getAll() {
@@ -15,14 +14,13 @@ function getAll() {
 
 function updateItems(id, { email, value, isprivate, itemsid }) {
   const user = users.find((x) => x.email === email)
-  console.log(itemsid,"*/*/*/*/*/*/*/*/*");
   const item = {
     id: itemsid ? itemsid : uuid() ,
     value: value,
     isprivate: isprivate,
     dateCreated:new Date().toISOString()
   }
-  // splicing the data 
+  // splicing the data
   if (itemsid) {
     if (isprivate) {
       const userData = [];
@@ -48,7 +46,7 @@ function updateItems(id, { email, value, isprivate, itemsid }) {
       const index = userData[0].privateItems.findIndex((user) => user.id === itemsid);
       if (index !== -1) userData[0].privateItems.splice(index, 1);
     }
-  } 
+  }
    if (isprivate) {
        user.privateItems.push(item)
    }else{
@@ -57,16 +55,6 @@ function updateItems(id, { email, value, isprivate, itemsid }) {
  // save data
   saveData()
 }
-
-function _delete(id, { sourceemail, value, isprivate, itemsid }) {
-  // filter out deleted user and save
-  user = users.filter(x => x.email === sourceemail);
-  console.log(user.publicItems, "------------");
-
-  saveData();
-
-}
-
 
 // private helper functions
 

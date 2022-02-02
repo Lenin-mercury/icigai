@@ -25,9 +25,6 @@ function Home() {
       publicArray.push(pitems);
     })
   })
-
-  console.log(publicArray, "public array");
-
   const [currentUser, setCurrentUser] = useState(
     itemsFromDB.find((x) => x.email === user.email)
   )
@@ -94,10 +91,7 @@ function Home() {
 
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return
-    const { source, destination } = result
-
-    // console.log(source.index, destination.index, "-----------", columns, result);
-
+    const { source, destination } = result;
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = columns[source.droppableId]
       const destColumn = columns[destination.droppableId]
@@ -110,7 +104,6 @@ function Home() {
       //public to private
       if(sourceColumn.name === "Public"){
         const sourceValue = sourceColumn.items[source.index]
-        console.log(sourceValue,"*************************");
         // this body will store in private
         const body={
           itemsid:sourceValue.id,
@@ -118,15 +111,11 @@ function Home() {
           email:currentUser.email,
           isprivate:true
         }
-        console.log(body, "555555555555555555");
-
         userService.updateItems(currentUser.id,body)
-        // userService.delete(currentUserId, {})
-
+        setPubToggle(!pubtoggle)
         //private to public
       } else if(sourceColumn.name === "Private") {
-        const sourceValue = sourceColumn.items[source.index]
-        console.log(sourceValue);
+        const sourceValue = sourceColumn.items[source.index];
         // this body will store in public
         const body={
           itemsid:sourceValue.id,
@@ -134,12 +123,9 @@ function Home() {
           email:currentUser.email,
           isprivate:false
         }
-        console.log(body, "77777777777777777777");
         userService.updateItems(currentUser.id,body)
-
+        setPubToggle(!pubtoggle)
       }
-
-
       setColumns({
         ...columns,
         [source.droppableId]: {
@@ -167,38 +153,36 @@ function Home() {
   }
   return (
     <div>
-      <h1>User Task</h1>
+      <h1 className="home-header">Welcome <span style={{color:"red"}}> {user.email} </span>  !!!</h1>
       <section>
-        <h1>Drag and Drop</h1>
-        <div
-          style={{ display: "flex", justifyContent: "center", height: "100%" }}
-        >
+        <div className="home-container">
           <DragDropContext
             onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
           >
             {Object.entries(columns).map(([columnId, column], index) => {
               return (
                 <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
+                className="home-content-container"
+                  // style={{
+                  //   display: "flex",
+                  //   flexDirection: "column",
+                  //   alignItems: "center",
+                  // }}
                   key={columnId}
                 >
-                  <h2>{column.name}</h2>
-
+                  <h3>{column.name}</h3>
                   {(column.name === "Public" && (
                     <>
-                      <form onSubmit={onPublicCreate}>
+                      <form onSubmit={onPublicCreate} className="home-form">
                         <input
                           type="text"
                           onChange={(e) => onhandleChange(e)}
                           value={publicValue}
                           name="publicValue"
+                          className="home-input"
                         />
                         <button
-                          className="btn btn-dark"
+                          className="btn btn-dark home-button"
                           onClick={() => setPubToggle(!pubtoggle)}
                         >
                           Add To Public
@@ -208,15 +192,16 @@ function Home() {
                   )) ||
                     (column.name === "Private" && (
                       <>
-                        <form onSubmit={onPrivateCreate}>
+                        <form onSubmit={onPrivateCreate} className="home-form">
                           <input
                             type="text"
                             onChange={(e) => onhandleChange(e)}
                             value={privateValue}
                             name="privateValue"
+                            className="home-input"
                           />
                           <button
-                            className="btn btn-dark"
+                            className="btn btn-dark home-button"
                             onClick={() => setPubToggle(!pubtoggle)}
                           >
                             Add To Private
@@ -224,24 +209,21 @@ function Home() {
                         </form>
                       </>
                     ))}
-                  <div style={{ margin: 8 }}>
+                  <div style={{margin:"10px"}}>
                     <Droppable droppableId={columnId} key={columnId}>
                       {(provided, snapshot) => {
                         return (
                           <div
                             {...provided.droppableProps}
                             ref={provided.innerRef}
+                            className="home-droppable"
                             style={{
                               background: snapshot.isDraggingOver
                                 ? "lightblue"
-                                : "lightgrey",
-                              padding: 4,
-                              width: 250,
-                              minHeight: 500,
+                                : "lightgrey"
                             }}
                           >
                             {column.items.map((item, index) => {
-                              // console.log(item);
                               return (
                                 <Draggable
                                   key={item.id}
@@ -251,18 +233,15 @@ function Home() {
                                   {(provided, snapshot) => {
                                     return (
                                       <div
+                                      className="home-draggable"
                                         ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                         style={{
                                           userSelect: "none",
-                                          padding: 16,
-                                          margin: "0 0 8px 0",
-                                          minHeight: "50px",
                                           backgroundColor: snapshot.isDragging
                                             ? "#263B4A"
                                             : "#456C86",
-                                          color: "white",
                                           ...provided.draggableProps.style,
                                         }}
                                       >

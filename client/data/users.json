@@ -2,52 +2,8 @@
     {
         "email": "lenin@gmail.com",
         "id": 1,
-        "publicItems": [
-            {
-                "id": "1c4e780f-63ac-4ffd-acbf-1e2071e4b552",
-                "value": "dom 1",
-                "isprivate": false,
-                "dateCreated": "2022-02-01T20:03:12.351Z"
-            },
-            {
-                "id": "28f2c5d4-1b0b-4480-a312-bf2696a0095e",
-                "value": "dom 2",
-                "isprivate": false,
-                "dateCreated": "2022-02-01T22:07:21.797Z"
-            },
-            {
-                "id": "58f30f4d-245a-4b41-9ed9-40b86b651647",
-                "value": "dom 3",
-                "isprivate": false,
-                "dateCreated": "2022-02-01T22:38:47.355Z"
-            }
-        ],
-        "privateItems": [
-            {
-                "id": "7bbea738-92f9-49ae-9cc2-ddf3dd8b960d",
-                "value": "hi",
-                "isprivate": true,
-                "dateCreated": "2022-02-01T20:28:09.432Z"
-            },
-            {
-                "id": "027c64a3-e7a7-4c56-bcf0-1f42916957b5",
-                "value": "Hellp Public",
-                "isprivate": true,
-                "dateCreated": "2022-02-01T22:07:32.200Z"
-            },
-            {
-                "id": "d0e66c86-261d-427f-abf4-6fab3139ff47",
-                "value": "yes",
-                "isprivate": true,
-                "dateCreated": "2022-02-01T22:39:07.796Z"
-            },
-            {
-                "id": "16aa5320-3b5f-45cd-814c-9a8caaa998a4",
-                "value": "test2",
-                "isprivate": true,
-                "dateCreated": "2022-02-01T22:41:09.300Z"
-            }
-        ]
+        "publicItems": [],
+        "privateItems": []
     },
     {
         "email": "user_a@system.com",
@@ -56,42 +12,18 @@
         "dateUpdated": "2022-02-01T19:16:44.161Z",
         "publicItems": [
             {
-                "id": "0c22ddd9-80ba-4170-a668-f65fa21d00e2",
-                "value": "dom 4",
+                "id": "7a249c86-e9c9-46ed-858a-bb13caf5e152",
+                "value": "Public Dom 2",
                 "isprivate": false,
-                "dateCreated": "2022-02-01T22:48:01.933Z"
-            },
-            {
-                "id": "78d565ca-a059-414a-9e3e-1bc6f9a7a7ff",
-                "value": "dom 5",
-                "isprivate": false,
-                "dateCreated": "2022-02-01T22:48:05.186Z"
+                "dateCreated": "2022-02-02T14:32:24.361Z"
             }
         ],
         "privateItems": [
             {
-                "id": "74865b0a-237a-4141-9490-fc28a9491b98",
-                "value": "test 1",
+                "id": "c3a992a2-915e-40c2-a289-bd80a1f515f1",
+                "value": "user a private",
                 "isprivate": true,
-                "dateCreated": "2022-02-01T22:48:17.863Z"
-            },
-            {
-                "id": "fce3981a-f69c-4578-8865-3637cd287261",
-                "value": "test2",
-                "isprivate": true,
-                "dateCreated": "2022-02-01T22:49:19.203Z"
-            },
-            {
-                "id": "78d565ca-a059-414a-9e3e-0bc6f9a7a7ff",
-                "value": "dom 7",
-                "isprivate": true,
-                "dateCreated": "2022-02-02T09:50:15.962Z"
-            },
-            {
-                "id": "0c22ddd9-80ba-4170-a668-f65fa21d01e2",
-                "value": "dom 6",
-                "isprivate": true,
-                "dateCreated": "2022-02-02T09:52:09.359Z"
+                "dateCreated": "2022-02-02T14:11:05.743Z"
             }
         ]
     },
@@ -102,18 +34,25 @@
         "dateUpdated": "2022-02-01T19:16:44.161Z",
         "publicItems": [
             {
-                "id": "0c22ddd9-80ba-4170-a668-f65fa21d01e2",
-                "value": "dom 6",
+                "id": "443c9ffd-a428-4afe-b90b-ebbf467c09e5",
+                "value": "Public Dom 1",
                 "isprivate": false,
-                "dateCreated": "2022-02-01T22:48:01.933Z"
-            },
-            {
-                "id": "78d565ca-a059-414a-9e3e-0bc6f9a7a7ff",
-                "value": "dom 7",
-                "isprivate": false,
-                "dateCreated": "2022-02-01T22:48:05.186Z"
+                "dateCreated": "2022-02-02T14:10:05.337Z"
             }
         ],
-        "privateItems": []
+        "privateItems": [
+            {
+                "id": "5a92c897-1f75-4cb3-9428-296e26e113dc",
+                "value": "test 1",
+                "isprivate": true,
+                "dateCreated": "2022-02-02T14:10:07.967Z"
+            },
+            {
+                "id": "c3a992a2-915e-40c2-a289-bd80a1f515f1",
+                "value": "user b private",
+                "isprivate": true,
+                "dateCreated": "2022-02-02T14:11:05.743Z"
+            }
+        ]
     }
 ]
