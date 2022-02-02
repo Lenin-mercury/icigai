@@ -22,6 +22,33 @@ function updateItems(id, { email, value, isprivate, itemsid }) {
     isprivate: isprivate,
     dateCreated:new Date().toISOString()
   }
+  // splicing the data 
+  if (itemsid) {
+    if (isprivate) {
+      const userData = [];
+      users.map((user) => {
+        user.publicItems.forEach((items) => {
+          if (items.id === itemsid) {
+            userData.push(user);
+          }
+        })
+      })
+      const index = userData[0].publicItems.findIndex((user) => user.id === itemsid);
+      if (index !== -1) userData[0].publicItems.splice(index, 1);
+
+    } else {
+      const userData = [];
+      users.map((user) => {
+        user.privateItems.forEach((items) => {
+          if (items.id === itemsid) {
+            userData.push(user);
+          }
+        })
+      })
+      const index = userData[0].privateItems.findIndex((user) => user.id === itemsid);
+      if (index !== -1) userData[0].privateItems.splice(index, 1);
+    }
+  } 
    if (isprivate) {
        user.privateItems.push(item)
    }else{
